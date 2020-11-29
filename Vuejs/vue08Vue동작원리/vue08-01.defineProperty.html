@@ -44,7 +44,7 @@
       예제) vue06-03.hello-vue.html 을 참조. 
     </pre>
     <div id="app">
-        <h2>{{msg}}</h2>
+        <h2 v-on:click="test">{{msg}}</h2>
     </div>
 
     <hr color="red">
@@ -57,10 +57,82 @@
       엘리먼트의 innerHTML 또는 innerText 프러퍼티 사용.
     </pre>
     <h2 id="app2">
-        <!-- 이자리에 있는 정보를 가져오다. -->
+        이자리에 있는 정보를 가져오다.
     </h2>
 </body>
 
 </html>
 
 <!-- vue 플러그인 임포트   -->
+
+<!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    var vm1 = new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            msg: "Hello"
+        },
+        //template: ``,
+        methods: {
+            test: function(event) {
+                alert("hihi")
+            }
+        },
+    });
+
+    new Vue({
+        /* edtmc^2w */
+        el: "#app2",
+        data: {
+    
+        },
+        //template: ``,
+        methods: {
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    /*
+    data: {
+        msg: "Hello,"
+    } 을 구현하여 본다.
+    */
+    var div = document.getElementById("app2")
+    var data = {}
+    Object.defineProperty( data, "msg", {
+        get: function() {
+            return div.innerText /* 이자리에 있는 정보를 가져오다. */
+        },
+        set: function(value) {
+            div.innerText = value
+        }
+    })
+
+    debugger;
+    console.log( data )
+
+    data.msg = "123" // 화면에 123이 표시된다. -> 화면이 바뀐다는 의미
+    data["msg"] = "abc"
+    
+</script>

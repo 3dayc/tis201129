@@ -39,7 +39,61 @@
             { text: 'Three', value: 'C' }
         ];
 
+        1.objarray 에 { text: 'Four', value: 'D' } 를 추가하시오
+            > create
+        2.objarray 에서 { text: 'Two', vlaue: 'B' }를 { text: '2', value: '2' } 로 바꾸시오
+            > update
+        3.objarray 에서 {text: 'Three', value: 'C' } 를 삭제하시오
+            > delete
+        4.objarray 에서 text가 'One' 객체들을 찾으시오
+            > search
+
     </xmp>
 </body>
 
 </html>
+
+<script>
+    var objarray = [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+    ];
+
+    //1.objarray 에 { text: 'Four', value: 'D' } 를 추가하시오 > create
+    objarray.push({ text: 'Four', value: 'D' });
+    objarray[objarray.length] = { text: 'Four', value: 'D' };
+
+    //2.objarray 에서 { text: 'Two', vlaue: 'B' }를 찾고 { text: '2', value: '2' } 로 바꾸시오 > update
+    objarray[1] = { text: '2', value: '2' }; // 뷰나 리액트는 밑에처럼 수정하는 방식이 아닌 이렇게 아예 바꾸는 방법으로 한다
+    objarray[1].text = '2';
+    objarray[1].value = '2';
+
+    //3.objarray 에서 {text: 'Three', value: 'C' } 를 삭제하시오 > delete
+    objarray.splice(2,1);
+
+    //4.objarray 에서 text가 'One' 객체들을 찾으시오  > search
+    var arrOne = [];
+    for( var i=0; i<objarray.length; i++ ) {
+        var obj = objarray[i];
+        if( obj.text === 'one') {
+            // text가 'One'이 있는 객체들을 담을 배열에 추가
+            arrOne[arrOne.length] = obj;
+        } else {
+            // 패스
+        }
+    }
+    //우리는 아래와 같은 방법을 써야 함
+    var arrOne2 = objarray.filter(function(item, index) {
+        if( item.text === 'One') {
+            return true
+        } else {
+            return false
+        }
+    }).map(function(item, index) {
+        return item['price'] = 0
+    })
+
+    console.log(arrOne2); // [{ text: 'One', value: 'A', price: 0 }]
+
+</script>
