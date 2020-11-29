@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Template - Data Binding</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <style>
+        .container {
+            color: red;
+            font-weight: bold;
+            font-size: 20pt;
+        }
+
+        div {
+            padding-bottom: 3px;
+            border-bottom: 1px dashed blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <xmp>
+        [1] v-if 디렉티브 :
+        [2] v-else 디렉티브 :
+        [3] v-else-if 디렉티브 :
+        [4] v-show 디렉티브 :
+            The use of the v-show directive is almost identical to that of v-if.
+            The only differences are that v-show does not support the <template> syntax
+            렌더링 안됨
+            display:none; <--> display:block; 를 사용.
+
+        [참조] 페이지 103, 104
+
+        https://kr.vuejs.org/v2/guide/conditional.html
+
+        https://riptutorial.com/vue-js/example/11981/v-if---v-else
+
+    </xmp>
+    <hr>
+
+
+    <h2>
+        v-if 연습 1. 
+        #app1 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까? 
+    </h2>
+    <div id="app1">
+        <h3 v-if="awesome">Vue is awesome!</h3>
+        <h3 v-else>Oh no 😢</h3>
+    </div>
+
+    <h2>
+        v-else 연습 2
+        #app2 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까?
+    </h2>
+    <div id="app2">
+        <h3 v-if="awesome">Vue is awesome!</h3>
+        <h3 v-else>Oh no 😢</h3>
+    </div>
+
+    <h2>
+        v-if/v-else 연습 3
+        위의 2 예제를 결합하는 예제 입니다. 
+        버튼을 클릭하면 awesome의 값을 반전시킨다. 
+        클릭하면 awesome : true ==>  awesome : false
+        클릭하면 awesome : false ==>  awesome : true
+        각자 실습
+    </h2>
+    <div id="app3">
+        <button v-on:click="clickBind">클릭</button>
+        <span v-if="awesome">
+            Now you see me
+        </span>
+        <div v-else>
+            Now you don't
+        </div>
+    </div>
+
+    <h2>v-if/v-else-if/v-else 연습 4 : 실습</h2>
+    <div id="app5">
+        <button v-on:click="clickBind">클릭</button>
+        <span v-if="type === 1">
+            A
+        </span>
+        <span v-else-if="type === 2">
+            B
+        </span>
+        <span v-else-if="type === 3">
+            C
+        </span>
+        <span v-else>
+            Not A/B/C
+        </span>
+    </div>
+</body>
+
+</html>
+
+<!-- vue 플러그인 임포트   -->

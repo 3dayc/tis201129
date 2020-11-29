@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Sample</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+
+<body>
+    <xmp>
+        Hello, Vue!!! 를 출력하시오.
+
+        작업 순서
+        . 스크립트 플러그인 임포트
+        . Vue 인스턴스 생성
+        . el 과 data 프로퍼티 설정
+        . HTML 파일에 DOM 컨테이너 설치
+
+        [참조]page 34,37,38
+    </xmp>
+    <hr>
+
+    <div id="app">
+        <p>{{ message }}</p>
+        <button v-on:click="clickBtn">click me</button>
+    </div>
+</body>
+
+</html>
+
+<!-- vue 플러그인 임포트   -->

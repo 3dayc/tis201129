@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Template - Directives</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <style lang="">
+        ul {
+            list-style-type: disc;
+        }
+
+        span {
+            font-size: 3em;
+            border: 1px dashed blue;
+            padding: 10px 20px;
+            margin: 5px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <xmp>
+        Vue.js v-for 지시자 에 대해서 학습한다.
+
+        단순 배열을 바인딩하는 방법 학습
+        array = [1,2,3,4,5];
+
+
+        Object Arrary를 바인딩하는 방법 학습.
+        Object Arrary 예시)
+        var objarray = [
+            { text: 'One', value: 'A' },
+            { text: 'Two', value: 'B' },
+            { text: 'Three', value: 'C' },
+        ];
+
+        [참조]page 104
+    </xmp>
+    <hr>
+
+    <h2>Arrary 바인딩</h2>
+    <div id="app">
+        <p>
+            <ul>
+                <!-- javascript for( var system in  systems); 문과 같다ㅈ -->
+                <li v-for="system in systems">{{ system }}</li>
+            </ul>
+        </p>
+        <p>
+            <span v-for="(val, i) in arr" v-bind:key="i">{{val}}</span>
+        </p>
+    </div>
+    <hr>
+
+    <h2>Object Arrary 바인딩</h2>
+    <div id="app1">
+        <div>
+            <h2>Object Arrary rendered with v-for:</h2>
+            <p>
+                var objarray = [
+                    { text: 'One', value: 'A' },
+                    { text: 'Two', value: 'B' },
+                    { text: 'Three', value: 'C' },
+                ];
+            </p>
+            <select name="" id="">
+                <option v-for="option in options" v-bind:key="value">
+                    {{ option.text }} : {{ option.value}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- vue 플러그인 임포트   -->

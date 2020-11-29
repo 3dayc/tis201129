@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Instance Lifecycle</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="../css/reset.css">
+
+</head>
+
+<body>
+    <pre>
+
+        Vue 라이프 사이클 단계 속성과 목적을 이해한다
+
+        Vue 라이프 사이클 updated 단계가 실행되게 하려면 어떻게 하면 되는가?
+        
+        updated 단계는 화면의 일부분이 새로고침(렌더링)되는 것을 의미한다. 
+        
+        기능 추가
+            1. 버튼을 만들고 클릭(click) 이벤트를 설정한다.
+               버튼 추가와 클릭(click) 이벤트 핸들러 작성 시 vue13-10 예제를 참조하시오
+               v-on:click="이벤트핸들러"
+            2. 버튼을 클릭하면 message 값을 자신의 이름으로 바꾼다.
+            
+        [참조]page 49, 104 소스 5번항 참조. 
+    </pre>
+    <hr>
+
+    <div id="app">
+        {{ message }}
+        <!-- 버튼 기능 추가-->
+
+    </div>
+
+    
+</body>
+
+</html>
+
+<!-- vue 플러그인 임포트   -->
