@@ -17,6 +17,18 @@
     <pre>
 
       v-for 지시자를 사용하여 자신이 좋아하는 가수들을 출력하는 테이블을 작성하여 본다.
+
+      1. Object Arrat를 만들어 화면과 같이 표시되게 하시오.
+      <img src="./signerarray.png">
+
+      2. "추가" 버튼을 만들고 클릭 이벤트를 설정
+      3. "추가" 버튼을 클릭하면 행이 추가되게 작성
+
+      4. input 태그를 3개 추가하고 "추가" 버튼을 클릭하면 해당 입력값을 이용하여 객체를 만들고 Object Array에 추가한다.
+      <!-- <label for="">이름</label><input v-model:value="name">
+      <label for="">전화번호</label><input v-model:value="tel">
+      <label for="">주소</label><input v-model:value="address"> -->
+
     </pre>
     <hr>
 
@@ -39,13 +51,105 @@
                 </tr>
             </tbody>
         </table>
+        <label for="">이름</label><input v-model:value="name">
+        <label for="">전화번호</label><input v-model:value="tel">
+        <label for="">주소</label><input v-model:value="address">
+        <button v-on:click="addBtn">추가버튼</button>
     </div>
 
 
-    
+
 
 </body>
 
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">
+    /* vue 플러그인 임포트 */
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">
+    /* JSX를 자바스크립트로 변환 */
+</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js">
+    /* vuex 플러그인 임포트 */
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+    /* axios 플러그인 임포트 */
+</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js">
+    /* vue 라우터 플러그인 임포트 */
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    /* jQuery library */
+</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            contacts: [{
+                    name: '설현',
+                    tel: '010-1234-5678',
+                    address: '인천'
+                },
+                {
+                    name: '소현',
+                    tel: '010-8788-5090',
+                    address: '부천'
+                },
+                {
+                    name: '나현',
+                    tel: '010-8788-5090',
+                    address: '부천'
+                },
+                {
+                    name: '광민',
+                    tel: '010-8788-5090',
+                    address: '부천'
+                },
+                {
+                    name: '철민',
+                    tel: '010-8788-5090',
+                    address: '부천'
+                },
+            ],
+            name: ' ',
+            tel: ' ',
+            address: ' '
+        },
+        //template: ``,
+        methods: {
+            addBtn: function (event) {
+                console.log(event.target);
+
+                //유효성 검사
+
+                //객체 생성
+                var obj = {
+                    name: this.$data.name,
+                    tel: this.$data.tel,
+                    address: this.$data.address
+                }
+
+                //배열 추가
+                this.$set(this.$data.contacts, this.$data.contacts.length, obj);
+            }
+        },
+        components: {
+
+        },
+        computed: {
+
+        },
+        watch: {
+
+        },
+        mounted: function () {
+            console.log("mounted");
+        },
+        updated: function () {
+            console.log("updated");
+        },
+    });
+</script>

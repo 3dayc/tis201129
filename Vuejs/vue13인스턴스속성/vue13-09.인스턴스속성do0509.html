@@ -39,6 +39,10 @@
         input 태그의 value 속성값을 console.log로 출력하시오.
         event.target ==> input 태그를 의미한다.
 
+        자바스크립트에서 input 태그의 value 속성에 입력된 값은 어떻게 가져울 수 있을까?
+        <!-- <input value="aaa"> -->
+        ==> event.target.value ==> "aaa" 값을 얻을 수 있다.
+
         페이지 107 참고.
         methods : {
             clickBtn : function(event){
@@ -46,16 +50,79 @@
             }
         }
       문제 2. 같이
-        watch 속성을 이용하여 data 속성의 변화를 감지하여 console.log로 출력하시오.
+        data 속성을 이용하여 입력된 값을 화면에 출력되게 하시오.
+
+        문제 3. 같이
+        computed 속성을 이용하여 입력된 값을 화면에 출력되게 하시오.
+
+        문제 4. 같이
+        watch 속성을 이용하여 입력된 값을 화면에 출력되게 하시오.
 
     </xmp>
     <hr>
     <div id="app">
-        <input type="text" name="message" id="message" v-on:keyup="msgKey">
+        <input type="text" name="message" id="message" value="" v-on:keyup="msgKey">
+        <br>
+        <span>data 속성을 이용해서 화면 표시: {{ mesg1 }}</span>
+        <br>
+        <span>computed 속성을 이용해서 화면 표시: {{ mesg2 }}</span>
+        <br>
+        <span>wacth 속성을 이용해서 화면 표시: {{ mesg3 }}</span>
     </div>
 
 </body>
 
 </html>
 
+
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            mesg1: "",
+            mesg3: "",
+        },
+        //template: ``,
+        methods: {
+          msgKey: function(event) {
+            console.log(event.target.value);
+            //this.$data.mesg1 = event.target.value;
+            this.$set(this.$data, "mesg1", event.target.value);
+          }
+        },
+        components: {
+    
+        }, 
+        computed: {
+            mesg2: function() {
+              //자동처리 + 동기식
+              return this.$data.mesg1 + " computed에서 생성"
+            }
+        },
+        watch: {
+            mesg1: function(value) {
+              //자동처리 + 비동기식
+              //value는 this.$data.mesg1 이 변경되었을 때만 전달되는 값
+              //watch가 사용될 수 있는 실제 예제
+              //회원가입시 사용가능 아이디/사용불가능 아이디 표시 - 실시간으로 연결될 때
+              //mesg1을 모니터링한다.
+              this.$data.mesg3 = value + " wacth 생성"
+            }
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+</script>

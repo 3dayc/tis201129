@@ -35,3 +35,55 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#my",
+        data: {
+            message: "change message at mounted!!!"
+        },
+        //template: ``,
+        methods: {
+            doClick: function(event) {
+                console.log(event.target);
+                //this.$data.message = "change message when a button clicked!!!" 이렇게 쓰는것도 맞으나 this.$set을 기억하기 위해 아래방식으로 쓴다.
+                var time = new Date().toLocaleString();
+                this.$set(this.$data, "message", "change message when a button clicked!!!" + time);
+            },
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+            //function을 사용할때는 this를 못찾기 때문에 아래 두가지 방식으로 원하는 this를 찾을 수 있다. (1.화살표함수, 2.변수self)
+            //1.
+            window.setTimeout( ()=> {
+                console.log(this);
+                this.$set(this.$data, "message", "change message after 3 seconds!!!")
+            }, 3000);
+            //2.
+            var self = this;
+            window.setTimeout( function() {
+                console.log(self);
+                self.$set(self.$data, "message", "change message after 5 seconds!!!")
+            }, 5000);
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+</script>

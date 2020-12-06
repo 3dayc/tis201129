@@ -36,7 +36,7 @@
     <div id="app">
         {{ message }}
         <!-- 버튼 기능 추가-->
-
+        <button v-on:click="changeBtn">버튼</button>
     </div>
 
     
@@ -45,3 +45,59 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+
+<!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    var vm = new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            message: "Hello, vue.js!!!"
+        },
+        //template: ``,
+        methods: {
+            changeBtn: function(event) {
+                this.$set(this.$data, "message", "hyanghoon");
+                setTimeout( ()=> {
+                    this.$set(this.$data, "message", "Hello");
+                }, 3000)
+            }
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        beforeCreate: function() {
+            console.log("beforeCreate");
+        },
+        created: function() {
+            console.log("created");
+        },
+        beforeMount: function() {
+            console.log("beforeMount");
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        beforeUpdate: function() {
+            console.log("beforeUpdatede");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+    vm.$data.message = "abc";
+
+</script>

@@ -43,6 +43,12 @@
             { text: 'Three', value: 'C' },
         ];
 
+        <select name="" id="">
+            <option value="">A</option>
+            <option value="">B</option>
+            <option value="">C</option>
+        </select>
+
         [참조]page 104
     </xmp>
     <hr>
@@ -51,7 +57,10 @@
     <div id="app">
         <p>
             <ul>
-                <!-- javascript for( var system in  systems); 문과 같다ㅈ -->
+                <!--
+                    v-for는 자바스크립트의 for in 문과 같다.
+                    javascript for( var system in  systems); 문과 같다.
+                -->
                 <li v-for="system in systems">{{ system }}</li>
             </ul>
         </p>
@@ -73,8 +82,8 @@
                 ];
             </p>
             <select name="" id="">
-                <option v-for="option in options" v-bind:key="value">
-                    {{ option.text }} : {{ option.value}}
+                <option v-for="(option, index) in options" v-bind:key="index" v-bind:value=option.value>
+                    {{ option.text }} : {{option.value}}
                 </option>
             </select>
         </div>
@@ -85,3 +94,71 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            systems: ['android', 'ios', 'window'],
+            arr: [1, 2, 3, 4, 5],
+        },
+        //template: ``,
+        methods: {
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+
+    new Vue({
+        /* edtmc^2w */
+        el: "#app1",
+        data: {
+            options: [
+                    { text: 'One', value: 'A' },
+                    { text: 'Two', value: 'B' },
+                    { text: 'Three', value: 'C' },
+                ],
+        },
+        //template: ``,
+        methods: {
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+    
+</script>
